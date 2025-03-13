@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400px" height="500px" viewBox="0 0 400 500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Pot -->
+        <path d="M100,300 L300,300 L320,450 L80,450 Z" fill="#8B4513" />
+        <!-- Soil -->
+        <path d="M100,300 L300,300 L290,250 L110,250 Z" fill="#3B2314" />
+        <!-- Plant -->
+        <path d="M200,250 L200,100" stroke="#228B22" stroke-width="6" />
+        <path d="M200,180 C170,150 120,160 110,100 C120,90 150,110 200,180" fill="#32CD32" />
+        <path d="M200,180 C230,150 280,160 290,100 C280,90 250,110 200,180" fill="#32CD32" />
+        <path d="M200,130 C170,100 120,110 110,50 C120,40 150,60 200,130" fill="#32CD32" />
+        <path d="M200,130 C230,100 280,110 290,50 C280,40 250,60 200,130" fill="#32CD32" />
+        
+        <!-- Smart Device Components -->
+        
+        <!-- Main Control Unit -->
+        <rect x="310" y="200" width="60" height="100" rx="5" fill="#4A90E2" />
+        <text x="325" y="180" font-family="Arial" font-size="10" fill="black">Control Unit</text>
+        
+        <!-- Wireless Signals -->
+        <path d="M350,220 C370,200 390,190 410,185" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,5" />
+        <path d="M350,230 C375,215 400,210 425,205" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,5" />
+        <path d="M350,240 C380,230 410,225 440,225" stroke="#4A90E2" stroke-width="2" stroke-dasharray="5,5" />
+        <text x="375" y="200" font-family="Arial" font-size="10" fill="black">Wi-Fi</text>
+        
+        <!-- Status LED -->
+        <circle cx="340" cy="220" r="5" fill="#4CAF50" />
+        <text x="350" y="220" font-family="Arial" font-size="8" fill="black">Status LED</text>
+        
+        <!-- Soil Moisture Sensor -->
+        <line x1="140" y1="250" x2="140" y2="350" stroke="#A9A9A9" stroke-width="3" />
+        <rect x="137" y="350" width="6" height="20" fill="#A9A9A9" />
+        <path d="M137,370 L143,370 L145,380 L135,380 Z" fill="#4682B4" />
+        <text x="110" y="320" font-family="Arial" font-size="10" fill="black">Moisture Sensor</text>
+        
+        <!-- Water Reservoir -->
+        <rect x="30" y="300" width="50" height="120" rx="5" fill="#ADD8E6" opacity="0.8" />
+        <text x="25" y="280" font-family="Arial" font-size="10" fill="black">Water Reservoir</text>
+        
+        <!-- Water Level -->
+        <rect x="30" y="350" width="50" height="70" fill="#1E90FF" opacity="0.6" />
+        <text x="35" y="370" font-family="Arial" font-size="8" fill="white">70%</text>
+        
+        <!-- Pump -->
+        <rect x="55" y="330" width="20" height="25" rx="2" fill="#555555" />
+        <text x="30" y="435" font-family="Arial" font-size="10" fill="black">Pump</text>
+        
+        <!-- Water Tube -->
+        <path d="M75,340 C110,340 130,300 160,300" stroke="#1E90FF" stroke-width="2" stroke-dasharray="2,2" />
+        <path d="M160,300 C165,290 170,270 170,250" stroke="#1E90FF" stroke-width="2" />
+        
+        <!-- Drip Emitter -->
+        <circle cx="170" cy="250" r="4" fill="#1E90FF" />
+        <path d="M168,250 L166,260 M172,250 L174,260" stroke="#1E90FF" stroke-width="1" />
+        <text x="175" y="255" font-family="Arial" font-size="8" fill="black">Drip Emitter</text>
+    </g>
+</svg> 

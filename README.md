@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PlantPal Smart Watering System
+
+A Next.js web application that demonstrates a smart watering system concept with an interactive device visualization and mobile app interface.
+
+## Overview
+
+PlantPal is a conceptual smart watering system that helps users take better care of their plants by:
+
+- Monitoring soil moisture levels in real-time
+- Automatically watering plants when needed
+- Providing insights and recommendations through a mobile app
+- Sending alerts when attention is required
+
+This project includes:
+
+1. A landing page showcasing the product features and benefits
+2. An interactive webapp demo that simulates both the physical device and mobile app
+3. Animations that demonstrate how the system works
+
+## Features
+
+### Landing Page
+- Modern, responsive design
+- Product overview and key features
+- How it works section
+- Pricing information
+- Call-to-action sections
+
+### Interactive Demo
+- Device visualization with animated components:
+  - Soil moisture sensor
+  - Water reservoir with dynamic water level
+  - Pump animation
+  - LED status indicator
+  - Wireless connectivity visualization
+  
+- Mobile app interface simulation:
+  - Real-time moisture monitoring
+  - Watering controls
+  - Alerts and notifications
+  - Plant status dashboard
+  - Watering history chart
+  - Smart recommendations
+
+## Technologies Used
+
+- **Next.js**: React framework for building the web application
+- **TypeScript**: For type-safe code
+- **Tailwind CSS**: For styling and responsive design
+- **Framer Motion**: For animations and transitions
+- **Chart.js**: For data visualization
+- **React Icons**: For UI icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js 18.17 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/smart-watering-system.git
+cd smart-watering-system
+```
+
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Run the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the landing page.
+5. Navigate to [http://localhost:3000/webapp](http://localhost:3000/webapp) to see the interactive demo.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+smart-watering-system/
+├── app/                  # Next.js app directory
+│   ├── components/       # Reusable components
+│   │   ├── AppInterface.tsx     # Mobile app interface component
+│   │   ├── DeviceVisualization.tsx  # Device visualization component
+│   │   └── Navbar.tsx    # Navigation component
+│   ├── webapp/           # Interactive demo page
+│   │   └── page.tsx      # Demo page component
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout component
+│   └── page.tsx          # Landing page component
+├── public/               # Static assets
+│   └── images/           # SVG and image files
+├── package.json          # Project dependencies
+└── README.md             # Project documentation
+```
 
-## Learn More
+## Usage
 
-To learn more about Next.js, take a look at the following resources:
+The interactive demo allows users to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. See the soil moisture level decrease over time
+2. Trigger watering manually via the app interface or demo controls
+3. Watch the water flow animation from reservoir to soil
+4. See the moisture level increase after watering
+5. Observe alerts when moisture levels get too low
+6. View dynamic recommendations based on plant conditions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Acknowledgments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- This project is a conceptual demonstration and not a real product
+- Inspired by various smart gardening solutions and IoT devices
