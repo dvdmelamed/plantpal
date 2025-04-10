@@ -13,7 +13,8 @@ const nextConfig: NextConfig = {
   basePath: isGithubActions ? `/${repo}` : '',
   assetPrefix: isGithubActions ? `/${repo}/` : '',
   
-  distDir: '.next',
+  // Don't customize the distDir to avoid confusing Next.js
+  // distDir: '.next',
   
   // Static images need to be handled differently for exported sites
   images: {

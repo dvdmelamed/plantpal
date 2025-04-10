@@ -5,6 +5,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLeaf, FaWater, FaMobileAlt, FaWifi, FaBrain, FaShieldAlt } from "react-icons/fa";
 
+// Ensure this page is statically generated at the root
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
