@@ -35,8 +35,32 @@ jobs:
         with:
           static_site_generator: next
       
-      - name: Build with Next.js
-        run: npm run build
+      - name: Build and Export with Next.js
+        run: |
+          echo "Contents of next.config.ts:"
+          cat next.config.ts
+          echo "Running build..."
+          npm run build
+          echo "Checking if 'out' directory exists:"
+          if [ -d "out" ]; then
+            echo "Directory 'out' exists!"
+            echo "Contents of 'out' directory:"
+            ls -la out/
+            echo "Creating .nojekyll file"
+            touch out/.nojekyll
+          else
+            echo "Directory 'out' does not exist!"
+            echo "Contents of current directory:"
+            ls -la
+            echo "Contents of '.next' directory:"
+            ls -la .next/ || echo ".next directory not found"
+            echo "Creating out directory and copying required files"
+            mkdir -p out
+            [ -d ".next/static" ] && cp -r .next/static out/ || echo ".next/static not found"
+            [ -d "public" ] && cp -r public/* out/ || echo "public directory not found"
+            echo "Contents of created 'out' directory:"
+            ls -la out/
+          fi
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
