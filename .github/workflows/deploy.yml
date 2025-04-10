@@ -43,49 +43,18 @@ jobs:
         run: |
           echo "Building with repository: $GITHUB_REPOSITORY"
           
+          # Clean any previous build
+          rm -rf .next out
+          
           # Run the Next.js build
           npm run build
           
-          # Debug directory structure
-          echo "Current directory structure after build:"
-          ls -la
-          
-          # Find where the build output is located
-          if [ -d ".next/standalone" ]; then
-            echo "Found .next/standalone directory"
-            BUILD_DIR=".next/standalone"
-          elif [ -d ".next" ]; then
-            echo "Found .next directory"
-            BUILD_DIR=".next"
-          else
-            echo "No build directory found!"
-            BUILD_DIR=""
-          fi
-          
-          # Create out directory
-          mkdir -p out
-          
-          # Copy appropriate files to the out directory
-          if [ -d ".next/static" ]; then
-            echo "Copying .next/static to out/_next/static"
-            mkdir -p out/_next
-            cp -r .next/static out/_next/
-          fi
-          
-          if [ -d "public" ]; then
-            echo "Copying public files to out"
-            cp -r public/* out/
-          fi
-          
-          # Create HTML files in out directory for each route
-          echo '<meta http-equiv="refresh" content="0;url=app" />' > out/index.html
-          
-          # Create .nojekyll file
-          touch out/.nojekyll
-          
-          # Debug the out directory
-          echo "Contents of out directory:"
+          # Debug the output directory
+          echo "Contents of output directory:"
           ls -la out/
+          
+          # Add .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
+          touch out/.nojekyll
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
