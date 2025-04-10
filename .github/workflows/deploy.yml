@@ -36,7 +36,12 @@ jobs:
           static_site_generator: next
       
       - name: Build and Export with Next.js
+        env:
+          GITHUB_ACTIONS: true
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          NODE_ENV: production
         run: |
+          echo "Building with repository: $GITHUB_REPOSITORY"
           echo "Contents of next.config.ts:"
           cat next.config.ts
           echo "Running build..."

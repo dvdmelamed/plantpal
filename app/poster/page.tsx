@@ -142,10 +142,12 @@ export default function PosterPage() {
                 <div className="relative mx-auto max-w-md">
                   <div className="relative w-full h-[300px]">
                     <Image 
-                      src="/images/smart-device.svg" 
+                      src="images/smart-device.svg" 
                       alt="PlantPal Smart Watering System"
-                      fill
-                      style={{ objectFit: 'contain' }}
+                      width={500}
+                      height={300}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                      unoptimized
                     />
                   </div>
                 </div>

@@ -50,11 +50,12 @@ const DeviceVisualization: React.FC<DeviceVisualizationProps> = ({
         <div className="relative">
           <div className="relative w-full h-auto max-w-lg">
             <Image 
-              src="/images/smart-device.svg" 
+              src="images/smart-device.svg" 
               alt="Smart Watering Device"
               width={500}
               height={500} 
               style={{ width: '100%', height: 'auto' }}
+              unoptimized
             />
           </div>
           

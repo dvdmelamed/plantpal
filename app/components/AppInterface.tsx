@@ -141,10 +141,12 @@ const AppInterface: React.FC<AppInterfaceProps> = ({
             <div className="flex items-center">
               <div className="relative h-16 w-16">
                 <Image 
-                  src="/images/plant.svg" 
+                  src="images/plant.svg" 
                   alt="Plant"
-                  fill
+                  width={64}
+                  height={64}
                   style={{ objectFit: 'contain' }}
+                  unoptimized
                 />
               </div>
               <div className="ml-2">

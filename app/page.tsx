@@ -46,11 +46,12 @@ export default function Home() {
               >
                 <div className="relative w-full max-w-md">
                   <Image 
-                    src="/images/smart-device.svg" 
+                    src="images/smart-device.svg" 
                     alt="PlantPal Smart Watering System"
                     width={500}
                     height={500}
                     style={{ width: '100%', height: 'auto' }}
+                    unoptimized
                   />
                 </div>
               </motion.div>
