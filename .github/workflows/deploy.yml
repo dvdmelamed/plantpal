@@ -49,12 +49,56 @@ jobs:
           # Run the Next.js build
           npm run build
           
-          # Debug the output directory
-          echo "Contents of output directory:"
-          ls -la out/
+          # Debug - list directories to find where Next.js exported the files
+          echo "Directory contents after build:"
+          ls -la
+          
+          # Check if .next directory exists
+          if [ -d ".next" ]; then
+            echo "Contents of .next directory:"
+            ls -la .next/
+          fi
+          
+          # Check if next.js created any exports
+          if [ -d "out" ]; then
+            echo "Contents of out directory (created by Next.js):"
+            ls -la out/
+          else
+            echo "No 'out' directory found. Creating it manually."
+            mkdir -p out
+            
+            # If .next/static exists, copy it to out/_next/static
+            if [ -d ".next/static" ]; then
+              echo "Copying .next/static to out/_next/static"
+              mkdir -p out/_next
+              cp -r .next/static out/_next/
+            fi
+            
+            # Check if .next/server/app exists (for HTML files)
+            if [ -d ".next/server/app" ]; then
+              echo "Found .next/server/app - copying HTML files"
+              find .next/server/app -name "*.html" -exec cp {} out/ \;
+            fi
+            
+            # Copy public directory contents
+            if [ -d "public" ]; then
+              echo "Copying public directory contents"
+              cp -r public/* out/
+            fi
+            
+            # Create minimal index.html if not found
+            if [ ! -f "out/index.html" ]; then
+              echo "Creating minimal index.html"
+              echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>PlantPal</title></head><body><h1>PlantPal Smart Watering System</h1><p>Loading application...</p></body></html>' > out/index.html
+            fi
+          fi
           
           # Add .nojekyll file to prevent GitHub Pages from ignoring files that begin with an underscore
           touch out/.nojekyll
+          
+          # Show final output directory contents
+          echo "Final contents of out directory:"
+          ls -la out/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

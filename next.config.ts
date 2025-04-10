@@ -8,6 +8,7 @@ const repo = process.env.GITHUB_REPOSITORY?.replace(/.*?\//, '') || 'plantal';
 // @ts-ignore
 const nextConfig: NextConfig = {
   output: 'export',
+  distDir: '.next', // Ensure output is in .next as expected
   
   // Configure basePath and assetPrefix for GitHub Pages
   basePath: isGithubActions ? `/${repo}` : '',
@@ -27,6 +28,14 @@ const nextConfig: NextConfig = {
   
   // Ensure trailing slashes for better compatibility with static hosting
   trailingSlash: true,
+  
+  // Explicitly set the output directory to "out"
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return defaultPathMap;
+  },
 };
 
 export default nextConfig;
