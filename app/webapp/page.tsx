@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaArrowLeft } from 'react-icons/fa';
 import Link from 'next/link';
 import AppInterface from '../components/AppInterface';
@@ -8,11 +8,41 @@ import DeviceVisualization from '../components/DeviceVisualization';
 
 export default function WebApp() {
   const [isWatering, setIsWatering] = useState(false);
+  const [moistureLevel, setMoistureLevel] = useState(25);
+  const [reservoirLevel, setReservoirLevel] = useState(80);
+  const [showAlert, setShowAlert] = useState(false);
+  const [lastWatered, setLastWatered] = useState('3 hours ago');
+  const [nextWatering, setNextWatering] = useState('in 2 days');
+
+  // Simulate decreasing moisture level over time
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!isWatering) {
+        setMoistureLevel((prev) => {
+          const newLevel = Math.max(1, prev - 1);
+          // Show alert if moisture level is too low
+          if (newLevel < 15 && !showAlert) {
+            setShowAlert(true);
+          }
+          return newLevel;
+        });
+      }
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isWatering, showAlert]);
 
   const handleWatering = () => {
     setIsWatering(true);
+    setShowAlert(false);
+    
+    // Simulate watering for 5 seconds
     setTimeout(() => {
       setIsWatering(false);
+      setMoistureLevel(75);
+      setReservoirLevel((prev) => Math.max(0, prev - 5));
+      setLastWatered('Just now');
+      setNextWatering('in 3 days');
     }, 5000);
   };
 
@@ -34,11 +64,29 @@ export default function WebApp() {
         
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="flex-1 order-2 lg:order-1">
-            <DeviceVisualization isWatering={isWatering} />
+            <DeviceVisualization 
+              isWatering={isWatering} 
+              moistureLevel={moistureLevel}
+              reservoirLevel={reservoirLevel}
+            />
           </div>
           
           <div className="flex-1 order-1 lg:order-2 flex justify-center">
-            <AppInterface />
+            <AppInterface 
+              moistureLevel={moistureLevel}
+              setMoistureLevel={setMoistureLevel}
+              reservoirLevel={reservoirLevel}
+              setReservoirLevel={setReservoirLevel}
+              isWatering={isWatering}
+              setIsWatering={setIsWatering}
+              showAlert={showAlert}
+              setShowAlert={setShowAlert}
+              lastWatered={lastWatered}
+              setLastWatered={setLastWatered}
+              nextWatering={nextWatering}
+              setNextWatering={setNextWatering}
+              handleWaterNow={handleWatering}
+            />
           </div>
         </div>
         

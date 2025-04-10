@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
@@ -36,15 +36,33 @@ ChartJS.register(
   Legend
 );
 
-const AppInterface = () => {
-  const [moistureLevel, setMoistureLevel] = useState(25);
-  const [reservoirLevel, setReservoirLevel] = useState(80);
-  const [isWatering, setIsWatering] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
-  const [lightLevel] = useState(65);
-  const [temperature] = useState(24);
-  const [lastWatered, setLastWatered] = useState('3 hours ago');
-  const [nextWatering, setNextWatering] = useState('in 2 days');
+interface AppInterfaceProps {
+  moistureLevel: number;
+  setMoistureLevel?: React.Dispatch<React.SetStateAction<number>>;
+  reservoirLevel: number;
+  setReservoirLevel?: React.Dispatch<React.SetStateAction<number>>;
+  isWatering: boolean;
+  setIsWatering?: React.Dispatch<React.SetStateAction<boolean>>;
+  showAlert: boolean;
+  setShowAlert?: React.Dispatch<React.SetStateAction<boolean>>;
+  lastWatered: string;
+  setLastWatered?: React.Dispatch<React.SetStateAction<string>>;
+  nextWatering: string;
+  setNextWatering?: React.Dispatch<React.SetStateAction<string>>;
+  handleWaterNow?: () => void;
+}
+
+const AppInterface: React.FC<AppInterfaceProps> = ({
+  moistureLevel,
+  reservoirLevel,
+  isWatering,
+  showAlert,
+  lastWatered,
+  nextWatering,
+  handleWaterNow
+}) => {
+  const lightLevel = 65;
+  const temperature = 24;
   
   // Data for the moisture level chart
   const chartData = {
@@ -69,41 +87,6 @@ const AppInterface = () => {
         max: 100,
       },
     },
-  };
-
-  // Simulate changing moisture level
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (!isWatering) {
-        setMoistureLevel((prev) => {
-          const newLevel = Math.max(1, prev - 1);
-          
-          // Show alert if moisture level is too low
-          if (newLevel < 15 && !showAlert) {
-            setShowAlert(true);
-          }
-          
-          return newLevel;
-        });
-      }
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, [isWatering, showAlert]);
-
-  // Simulate watering effect
-  const handleWaterNow = () => {
-    setIsWatering(true);
-    setShowAlert(false);
-    
-    // Simulate watering for 5 seconds
-    setTimeout(() => {
-      setIsWatering(false);
-      setMoistureLevel(75);
-      setReservoirLevel((prev) => Math.max(0, prev - 5));
-      setLastWatered('Just now');
-      setNextWatering('in 3 days');
-    }, 5000);
   };
 
   const getMoistureColor = () => {
