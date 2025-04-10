@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { FaLeaf, FaWater, FaMobileAlt, FaWifi, FaLightbulb, FaArrowRight, FaPrint } from 'react-icons/fa';
-import Link from 'next/link';
 import './print.css';
 
 export default function PosterPage() {

@@ -2,7 +2,7 @@
   "name": "smart-watering-system",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://USERNAME.github.io/smart-watering-system",
+  "homepage": "https://GITHUB_USERNAME.github.io/smart-watering-system",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

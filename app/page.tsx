@@ -1,6 +1,5 @@
 'use client';
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaLeaf, FaWater, FaMobileAlt, FaWifi, FaBrain, FaShieldAlt } from "react-icons/fa";
@@ -151,7 +150,7 @@ export default function Home() {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-green-600 mx-auto mb-4">1</div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Install & Connect</h3>
               <p className="text-gray-600">
-                Place the moisture sensor in your plant's soil, fill the water reservoir, and connect to your Wi-Fi network.
+                Place the moisture sensor in your plant&apos;s soil, fill the water reservoir, and connect to your Wi-Fi network.
               </p>
             </div>
             
@@ -223,13 +222,13 @@ export default function Home() {
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                     </svg>
                     <span className="text-gray-600">Free mobile app (iOS & Android)</span>
-          </li>
+                  </li>
                   <li className="flex items-center">
                     <svg className="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                     </svg>
                     <span className="text-gray-600">1-year warranty</span>
-          </li>
+                  </li>
                 </ul>
 
                 <button className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors">

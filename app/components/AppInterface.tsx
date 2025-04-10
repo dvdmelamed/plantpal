@@ -40,8 +40,8 @@ const AppInterface = () => {
   const [reservoirLevel, setReservoirLevel] = useState(80);
   const [isWatering, setIsWatering] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [lightLevel, setLightLevel] = useState(65);
-  const [temperature, setTemperature] = useState(24);
+  const [lightLevel] = useState(65);
+  const [temperature] = useState(24);
   const [lastWatered, setLastWatered] = useState('3 hours ago');
   const [nextWatering, setNextWatering] = useState('in 2 days');
   
