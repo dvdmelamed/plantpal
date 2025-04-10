@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { 
   FaWater, 
@@ -155,7 +156,14 @@ const AppInterface = () => {
           <h2 className="text-lg font-semibold mb-3 text-gray-700">Plant Status</h2>
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center">
-              <img src="/images/plant.svg" alt="Plant" className="h-16 w-16" />
+              <div className="relative h-16 w-16">
+                <Image 
+                  src="/images/plant.svg" 
+                  alt="Plant"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
               <div className="ml-2">
                 <h3 className="font-medium text-gray-800">Fern</h3>
                 <p className="text-sm text-gray-500">Indoor Plant</p>

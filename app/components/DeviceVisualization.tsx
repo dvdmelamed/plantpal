@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 interface DeviceVisualizationProps {
@@ -47,11 +48,15 @@ const DeviceVisualization: React.FC<DeviceVisualizationProps> = ({
       <div className="relative">
         {/* Device SVG Wrapper */}
         <div className="relative">
-          <img 
-            src="/images/smart-device.svg" 
-            alt="Smart Watering Device" 
-            className="w-full h-auto max-w-lg"
-          />
+          <div className="relative w-full h-auto max-w-lg">
+            <Image 
+              src="/images/smart-device.svg" 
+              alt="Smart Watering Device"
+              width={500}
+              height={500} 
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </div>
           
           {/* Animated LED */}
           <motion.div 

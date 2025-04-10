@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { FaLeaf, FaWater, FaMobileAlt, FaWifi, FaLightbulb, FaArrowRight, FaPrint } from 'react-icons/fa';
 import './print.css';
 
@@ -139,11 +140,14 @@ export default function PosterPage() {
               </h3>
               <div className="bg-white rounded-lg shadow-md p-4 text-center">
                 <div className="relative mx-auto max-w-md">
-                  <img 
-                    src="/images/smart-device.svg" 
-                    alt="PlantPal Smart Watering System" 
-                    className="w-full h-auto"
-                  />
+                  <div className="relative w-full h-[300px]">
+                    <Image 
+                      src="/images/smart-device.svg" 
+                      alt="PlantPal Smart Watering System"
+                      fill
+                      style={{ objectFit: 'contain' }}
+                    />
+                  </div>
                 </div>
                 <div className="mt-4 text-sm text-gray-600">
                   <p className="font-medium mb-2">Key Components:</p>

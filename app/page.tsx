@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaLeaf, FaWater, FaMobileAlt, FaWifi, FaBrain, FaShieldAlt } from "react-icons/fa";
 
@@ -43,11 +44,15 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="relative"
               >
-                <img 
-                  src="/images/smart-device.svg" 
-                  alt="PlantPal Smart Watering System" 
-                  className="w-full max-w-md"
-                />
+                <div className="relative w-full max-w-md">
+                  <Image 
+                    src="/images/smart-device.svg" 
+                    alt="PlantPal Smart Watering System"
+                    width={500}
+                    height={500}
+                    style={{ width: '100%', height: 'auto' }}
+                  />
+                </div>
               </motion.div>
             </div>
           </div>
@@ -83,7 +88,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Mobile App Control</h3>
               <p className="text-gray-600">
-                Monitor your plants' status, receive alerts, and control watering from anywhere using our intuitive mobile app.
+                Monitor your plants&apos; status, receive alerts, and control watering from anywhere using our intuitive mobile app.
               </p>
             </div>
             
@@ -105,7 +110,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Smart Recommendations</h3>
               <p className="text-gray-600">
-                Get personalized care tips based on your plant's specific needs and environmental conditions.
+                Get personalized care tips based on your plant&apos;s specific needs and environmental conditions.
               </p>
             </div>
             
