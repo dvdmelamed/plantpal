@@ -13,11 +13,10 @@ const nextConfig: NextConfig = {
   basePath: isGithubActions ? `/${repo}` : '',
   assetPrefix: isGithubActions ? `/${repo}/` : '',
   
-  // Don't customize the distDir to avoid confusing Next.js
-  // distDir: '.next',
-  
   // For Next.js 15.2.2, unoptimized images are configured at the root level
-  unoptimized: true,
+  images: {
+    unoptimized: true
+  },
   
   eslint: {
     // Disable ESLint during builds - we can re-enable this after fixing all linting issues
